@@ -23,3 +23,4 @@ if __name__ == '__main__':
     result = count_common_formula(x)
     write_to_element((By.ID, 'answer'), result)
     click((By.ID, 'solve'))
+    time.sleep(3)

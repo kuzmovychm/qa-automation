@@ -1,3 +1,4 @@
+import time
 from SeleniumHelper import *
 
 driver = webdriver.Chrome(ChromeDriverManager().install())
@@ -13,7 +14,7 @@ def robots_rule():
     button.click()
 
 
-def run_lab_1():
+if __name__ == '__main__':
     driver.get('http://suninjuly.github.io/math.html')
     x = read_int(driver, (By.ID, 'input_value'))
     result = count_common_formula(x)
@@ -21,3 +22,4 @@ def run_lab_1():
     mark_checkbox()
     robots_rule()
     click(driver, (By.XPATH, '/html/body/div/form/button'))
+    time.sleep(3)
