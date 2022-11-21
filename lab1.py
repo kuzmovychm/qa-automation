@@ -1,5 +1,5 @@
 import time
-from SeleniumHelper import *
+from selenium_helper import *
 
 driver = webdriver.Chrome(ChromeDriverManager().install())
 
@@ -22,4 +22,5 @@ if __name__ == '__main__':
     mark_checkbox()
     robots_rule()
     click(driver, (By.XPATH, '/html/body/div/form/button'))
+    WebDriverWait(driver, 10).until(EC.alert_is_present())
     time.sleep(3)

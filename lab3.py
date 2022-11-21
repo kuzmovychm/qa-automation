@@ -1,13 +1,13 @@
 import unittest
-import time
 import uuid
 
-from SeleniumHelper import write_to_element, click
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.wait import WebDriverWait
 from webdriver_manager.chrome import ChromeDriverManager
+
+from selenium_helper import write_to_element
 
 
 class LabTestCase(unittest.TestCase):

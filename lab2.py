@@ -1,6 +1,6 @@
 import time
 import math
-from SeleniumHelper import *
+from selenium_helper import *
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
@@ -21,6 +21,7 @@ if __name__ == '__main__':
     book()
     x = read_int(driver, (By.ID, 'input_value'))
     result = count_common_formula(x)
-    write_to_element((By.ID, 'answer'), result)
-    click((By.ID, 'solve'))
+    write_to_element(driver, (By.ID, 'answer'), result)
+    click(driver, (By.ID, 'solve'))
+    WebDriverWait(driver, 10).until(EC.alert_is_present())
     time.sleep(3)
