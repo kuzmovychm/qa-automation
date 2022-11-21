@@ -1,23 +1,6 @@
-import math
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-from webdriver_manager.chrome import ChromeDriverManager
+from SeleniumHelper import *
 
 driver = webdriver.Chrome(ChromeDriverManager().install())
-
-
-def read_x():
-    driver.get('http://suninjuly.github.io/math.html')
-    x_text = driver.find_element(By.ID, 'input_value').text
-    return int(x_text)
-
-
-def count_formula(value):
-    return math.log(math.fabs(12 * math.sin(value)))
-
-
-def write_answer(answer):
-    driver.find_element(By.ID, 'answer').send_keys(answer)
 
 
 def mark_checkbox():
@@ -30,15 +13,11 @@ def robots_rule():
     button.click()
 
 
-def submit():
-    submit_button = driver.find_element(By.XPATH, '/html/body/div/form/button')
-    submit_button.click()
-
-
 def run_lab_1():
-    x = read_x()
-    result = count_formula(x)
-    write_answer(result)
+    driver.get('http://suninjuly.github.io/math.html')
+    x = read_int(driver, (By.ID, 'input_value'))
+    result = count_common_formula(x)
+    write_to_element(driver, (By.ID, 'answer'), result)
     mark_checkbox()
     robots_rule()
-    submit()
+    click(driver, (By.XPATH, '/html/body/div/form/button'))
